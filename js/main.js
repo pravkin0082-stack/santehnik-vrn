@@ -77,3 +77,43 @@ document.addEventListener("DOMContentLoaded", function () {
     updateButton();
   }
 });
+
+/* ============================================
+   КНОПКА "НАВЕРХ"
+   ============================================ */
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollToTopBtn = document.querySelector(".scroll-to-top");
+
+  if (scrollToTopBtn) {
+    // Показывать/скрывать кнопку при прокрутке
+    let ticking = false;
+
+    function updateScrollButton() {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add("visible");
+      } else {
+        scrollToTopBtn.classList.remove("visible");
+      }
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollButton);
+        ticking = true;
+      }
+    });
+
+    // Плавная прокрутка наверх при клике
+    scrollToTopBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+
+    // Проверка при загрузке (если страница уже прокручена)
+    updateScrollButton();
+  }
+});

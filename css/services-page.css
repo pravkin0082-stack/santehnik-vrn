@@ -645,6 +645,7 @@
   .services-categories-nav {
     gap: 0.5rem;
     padding: 0.6rem 0.8rem;
+    margin-bottom: 1rem;
   }
 
   .services-nav-link {
