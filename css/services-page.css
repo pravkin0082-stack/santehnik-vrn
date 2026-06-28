@@ -4,7 +4,7 @@
 
 /* --- Hero секция --- */
 .services-hero {
-  background: url("../images/services-hero-bg.jpg") center/cover no-repeat;
+  background: url("../images/services-bg.jpg") center/cover no-repeat;
   padding: 5rem 0;
   position: relative;
   color: white;
