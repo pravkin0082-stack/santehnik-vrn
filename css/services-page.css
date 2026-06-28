@@ -483,8 +483,8 @@
 
   /* Навигация - ВСЕ кнопки видны, не прилипает */
   .services-nav-section {
-    position: relative; /* было sticky - меняем на relative */
-    top: auto;
+    position: relative !important; /* было sticky - меняем на relative */
+    top: auto !important;
     padding: 1rem 0;
     border-bottom: 2px solid #e0e0e0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
