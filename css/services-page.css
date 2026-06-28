@@ -452,7 +452,9 @@
   }
 }
 
+/* Мобильные устройства */
 @media (max-width: 768px) {
+  /* Hero секция */
   .services-hero {
     padding: 3rem 0;
   }
@@ -479,50 +481,36 @@
     max-width: 300px;
   }
 
+  /* Навигация - ВСЕ кнопки видны, не прилипает */
   .services-nav-section {
-    position: static;
+    position: relative; /* было sticky - меняем на relative */
+    top: auto;
     padding: 1rem 0;
+    border-bottom: 2px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
   .services-categories-nav {
     display: flex;
     gap: 0.6rem;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    justify-content: flex-start;
-    padding: 0.8rem 1rem;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: #4a90d9 #e8f4f8;
+    flex-wrap: wrap; /* кнопки переносятся на новую строку */
+    justify-content: center;
+    padding: 0.5rem 1rem;
   }
 
-  .services-categories-nav::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .services-categories-nav::-webkit-scrollbar-track {
-    background: #e8f4f8;
-    border-radius: 2px;
-  }
-
-  .services-categories-nav::-webkit-scrollbar-thumb {
-    background: #4a90d9;
-    border-radius: 2px;
-  }
   .services-nav-link {
-    flex-shrink: 0;
     padding: 0.7rem 1rem;
     font-size: 0.85rem;
     border-radius: 20px;
     min-height: 44px;
   }
+
   .services-nav-icon {
     width: 20px;
     height: 20px;
   }
 
+  /* Секции категорий */
   .service-category-section {
     padding: 2.5rem 0;
   }
@@ -544,6 +532,7 @@
     font-size: 1rem;
   }
 
+  /* Карточки услуг */
   .service-detail-card {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -576,6 +565,7 @@
     height: 200px;
   }
 
+  /* Подкатегории */
   .service-subcategory {
     margin-bottom: 2rem;
   }
@@ -589,6 +579,7 @@
     padding: 1.5rem;
   }
 
+  /* CTA блок */
   .services-cta-section {
     padding: 3rem 0;
   }
@@ -610,6 +601,7 @@
     flex-direction: column;
     align-items: center;
   }
+
   .btn-large,
   .btn-outline-white {
     padding: 1rem 1.5rem;
