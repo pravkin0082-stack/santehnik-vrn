@@ -1,10 +1,10 @@
 /* ============================================
-   SERVICES PAGE - Улучшенная адаптивность
+   SERVICES PAGE - Стили для страницы услуг
    ============================================ */
 
 /* --- Hero секция --- */
 .services-hero {
-  background: url("../images/services-bg.jpg") center/cover no-repeat;
+  background: url("../images/services-hero-bg.jpg") center/cover no-repeat;
   padding: 5rem 0;
   position: relative;
   color: white;
@@ -67,6 +67,11 @@
   color: white;
   border: 2px solid white;
   box-shadow: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
@@ -100,20 +105,20 @@
   gap: 0.5rem;
   background: white;
   color: #1e3c72;
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem 1.3rem;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
-  border: 2px solid #e0e0e0;
+  border: 2px solid transparent;
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
 }
 
 .services-nav-icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -125,11 +130,18 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(42, 82, 152, 0.3);
 }
+.services-nav-link.active .services-nav-icon {
+  filter: brightness(0) invert(1);
+}
 
 .services-nav-link.active {
   background: #2a5298;
   color: white;
   border-color: #2a5298;
+}
+
+.services-nav-link.active .services-nav-icon {
+  filter: brightness(0) invert(1);
 }
 
 /* --- Секции категорий --- */
@@ -175,7 +187,7 @@
   line-height: 1.5;
 }
 
-/* --- Карточки услуг с фото --- */
+/* --- Карточки услуг --- */
 .service-detail-card {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -268,7 +280,6 @@
   }
 }
 
-/* --- Место для фото --- */
 .service-detail-photo {
   display: flex;
   align-items: center;
@@ -373,6 +384,11 @@
   color: white;
   border: 2px solid white;
   box-shadow: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .btn-outline-white:hover {
@@ -381,11 +397,7 @@
   transform: translateY(-2px);
 }
 
-/* ============================================
-   АДАПТИВНОСТЬ
-   ============================================ */
-
-/* Планшеты */
+/* --- Адаптивность --- */
 @media (max-width: 992px) {
   .services-hero {
     padding: 4rem 0;
@@ -430,17 +442,16 @@
   }
 
   .services-nav-link {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.9rem;
   }
 
   .services-nav-icon {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
 }
 
-/* Мобильные устройства */
 @media (max-width: 768px) {
   .services-hero {
     padding: 3rem 0;
@@ -468,7 +479,6 @@
     max-width: 300px;
   }
 
-  /* Навигация */
   .services-nav-section {
     position: sticky;
     top: 60px;
@@ -477,7 +487,6 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  /* Горизонтальная прокрутка */
   .services-categories-nav {
     display: flex;
     gap: 0.6rem;
@@ -488,13 +497,10 @@
     padding: 0.8rem 1rem;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-
-    /* Скроллбар стиль */
     scrollbar-width: thin;
     scrollbar-color: #4a90d9 #e8f4f8;
   }
 
-  /* Скроллбар для Chrome/Safari */
   .services-categories-nav::-webkit-scrollbar {
     height: 4px;
   }
@@ -508,38 +514,18 @@
     background: #4a90d9;
     border-radius: 2px;
   }
-
-  /* Каждый элемент не сжимается */
   .services-nav-link {
     flex-shrink: 0;
     padding: 0.7rem 1rem;
     font-size: 0.85rem;
     border-radius: 20px;
-    min-height: 44px; /* Минимальная область нажатия для пальца */
+    min-height: 44px;
   }
-
   .services-nav-icon {
     width: 20px;
     height: 20px;
   }
 
-  /* Тень слева/справа для подсказки прокрутки */
-  .services-nav-section::after {
-    content: "→";
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.2rem;
-    color: #4a90d9;
-    background: linear-gradient(to right, transparent, #f8f9fa 30%);
-    padding-left: 20px;
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0.7;
-  }
-
-  /* Секции */
   .service-category-section {
     padding: 2.5rem 0;
   }
@@ -561,7 +547,6 @@
     font-size: 1rem;
   }
 
-  /* Карточки услуг */
   .service-detail-card {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -594,7 +579,6 @@
     height: 200px;
   }
 
-  /* Подкатегории */
   .service-subcategory {
     margin-bottom: 2rem;
   }
@@ -608,7 +592,6 @@
     padding: 1.5rem;
   }
 
-  /* CTA блок */
   .services-cta-section {
     padding: 3rem 0;
   }
@@ -630,8 +613,8 @@
     flex-direction: column;
     align-items: center;
   }
-
-  .btn-large {
+  .btn-large,
+  .btn-outline-white {
     padding: 1rem 1.5rem;
     font-size: 1rem;
     width: 100%;
@@ -639,7 +622,6 @@
   }
 }
 
-/* Маленькие телефоны */
 @media (max-width: 480px) {
   .services-hero {
     padding: 2.5rem 0;
@@ -662,7 +644,6 @@
     font-size: 0.95rem;
   }
 
-  /* Навигация */
   .services-nav-section {
     top: 55px;
   }
@@ -685,7 +666,6 @@
     height: 18px;
   }
 
-  /* Секции */
   .service-category-section {
     padding: 2rem 0;
   }
@@ -703,7 +683,6 @@
     font-size: 0.95rem;
   }
 
-  /* Карточки услуг */
   .service-detail-card {
     padding: 1.2rem;
     margin-bottom: 1.2rem;
@@ -729,7 +708,6 @@
     height: 180px;
   }
 
-  /* Подкатегории */
   .service-subcategory-title {
     font-size: 1.2rem;
   }
@@ -738,7 +716,6 @@
     padding: 1.2rem;
   }
 
-  /* CTA блок */
   .services-cta-block {
     padding: 2rem 1rem;
   }
@@ -750,14 +727,13 @@
   .services-cta-block p {
     font-size: 0.95rem;
   }
-
-  .btn-large {
+  .btn-large,
+  .btn-outline-white {
     padding: 0.9rem 1.2rem;
     font-size: 0.95rem;
   }
 }
 
-/* Очень маленькие экраны */
 @media (max-width: 360px) {
   .services-hero-title {
     font-size: 1.4rem;
@@ -805,7 +781,6 @@
   }
 }
 
-/* Горизонтальная ориентация на мобильных */
 @media (max-height: 500px) and (orientation: landscape) {
   .services-hero {
     padding: 2rem 0;
