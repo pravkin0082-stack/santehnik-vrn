@@ -78,11 +78,12 @@
 /* --- Навигация по категориям --- */
 .services-nav-section {
   background: #f8f9fa;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   position: sticky;
   top: 70px;
   z-index: 100;
   border-bottom: 2px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .services-categories-nav {
@@ -90,23 +91,24 @@
   gap: 0.8rem;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .services-nav-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   background: white;
   color: #1e3c72;
-  padding: 0.7rem 1.2rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border: 2px solid #e0e0e0;
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .services-nav-icon {
@@ -121,16 +123,13 @@
   color: white;
   border-color: #2a5298;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(42, 82, 152, 0.3);
 }
 
 .services-nav-link.active {
   background: #2a5298;
   color: white;
   border-color: #2a5298;
-}
-
-.services-nav-link.active .services-nav-icon {
-  filter: brightness(0) invert(1);
 }
 
 /* --- Секции категорий --- */
@@ -420,6 +419,25 @@
   .service-subcategory-title {
     font-size: 1.6rem;
   }
+  .services-nav-section {
+    top: 65px;
+    padding: 0.8rem 0;
+  }
+
+  .services-categories-nav {
+    gap: 0.6rem;
+    padding: 0.3rem 1rem;
+  }
+
+  .services-nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .services-nav-icon {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Мобильные устройства */
@@ -452,33 +470,73 @@
 
   /* Навигация */
   .services-nav-section {
-    position: static;
-    padding: 1rem 0;
+    position: sticky;
+    top: 60px;
+    padding: 0;
+    border-bottom: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
+  /* Горизонтальная прокрутка */
   .services-categories-nav {
-    gap: 0.5rem;
-    overflow-x: auto;
+    display: flex;
+    gap: 0.6rem;
     flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
     justify-content: flex-start;
-    padding: 0 1rem;
+    padding: 0.8rem 1rem;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    scroll-behavior: smooth;
+
+    /* Скроллбар стиль */
+    scrollbar-width: thin;
+    scrollbar-color: #4a90d9 #e8f4f8;
   }
 
+  /* Скроллбар для Chrome/Safari */
   .services-categories-nav::-webkit-scrollbar {
-    display: none;
+    height: 4px;
   }
 
+  .services-categories-nav::-webkit-scrollbar-track {
+    background: #e8f4f8;
+    border-radius: 2px;
+  }
+
+  .services-categories-nav::-webkit-scrollbar-thumb {
+    background: #4a90d9;
+    border-radius: 2px;
+  }
+
+  /* Каждый элемент не сжимается */
   .services-nav-link {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
     flex-shrink: 0;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    min-height: 44px; /* Минимальная область нажатия для пальца */
   }
 
   .services-nav-icon {
     width: 20px;
     height: 20px;
+  }
+
+  /* Тень слева/справа для подсказки прокрутки */
+  .services-nav-section::after {
+    content: "→";
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #4a90d9;
+    background: linear-gradient(to right, transparent, #f8f9fa 30%);
+    padding-left: 20px;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.7;
   }
 
   /* Секции */
@@ -605,9 +663,21 @@
   }
 
   /* Навигация */
+  .services-nav-section {
+    top: 55px;
+  }
+
+  .services-categories-nav {
+    gap: 0.5rem;
+    padding: 0.6rem 0.8rem;
+  }
+
   .services-nav-link {
-    padding: 0.5rem 0.9rem;
+    padding: 0.6rem 0.9rem;
     font-size: 0.8rem;
+    gap: 0.4rem;
+    border-radius: 18px;
+    min-height: 42px;
   }
 
   .services-nav-icon {
@@ -697,9 +767,16 @@
     font-size: 0.9rem;
   }
 
+  .services-categories-nav {
+    gap: 0.4rem;
+    padding: 0.5rem 0.6rem;
+  }
+
   .services-nav-link {
-    padding: 0.4rem 0.7rem;
+    padding: 0.5rem 0.8rem;
     font-size: 0.75rem;
+    gap: 0.3rem;
+    min-height: 40px;
   }
 
   .services-nav-icon {
