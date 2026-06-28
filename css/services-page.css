@@ -480,11 +480,8 @@
   }
 
   .services-nav-section {
-    position: sticky;
-    top: 60px;
-    padding: 0;
-    border-bottom: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: static;
+    padding: 1rem 0;
   }
 
   .services-categories-nav {
