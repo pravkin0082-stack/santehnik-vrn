@@ -488,6 +488,7 @@
     padding: 1rem 0;
     border-bottom: 2px solid #e0e0e0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
   }
 
   .services-categories-nav {
@@ -508,6 +509,10 @@
   .services-nav-icon {
     width: 20px;
     height: 20px;
+  }
+
+  .service-category-section:first-of-type {
+    padding-top: 1rem;
   }
 
   /* Секции категорий */
